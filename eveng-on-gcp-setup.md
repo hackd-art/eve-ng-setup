@@ -1,6 +1,6 @@
 
 ---
-# [[Eve-NG in GCP Setup]]  
+# Eve-NG in GCP Setup  
 ---
 
 ## Create and Configure VM instance
@@ -10,7 +10,7 @@
 gcloud compute images create nested-ubuntu-focal --source-image-family=ubuntu-2004-lts --source-image-project=ubuntu-os-cloud --licenses https://www.googleapis.com/compute/v1/projects/vm-options/global/licenses/enable-vmx
 ```
 
-##### VM Creation Notes:
+#### VM Creation Notes:
 - VM permission to all Cloud API
 - Firewall Rule to allow source 0.0.0.0/0 to all instances on the network port 22,80
 
@@ -87,7 +87,7 @@ nano /etc/apache2/ports.conf
 
 ## Configuring DHCP and Internet Access for Lab Nodes
 
-##### Internet Access
+#### Internet Access
 
 ```shell
 vim /etc/init.d/guacd
@@ -98,7 +98,7 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 iptables -t nat -A POSTROUTING -o pnet0 -s 192.168.255.0/24 -j MASQUERADE
 ```
 
-##### DHCP Service
+#### DHCP Service
 
 ```shell
 # install dhcp server
