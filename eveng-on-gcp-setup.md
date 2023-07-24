@@ -4,8 +4,8 @@
 ---
 
 ## Video Walkthroughs
-Setting Up Eve-NG on GCP - https://youtu.be/TZYw-jcCRvI
-Enabling HTTPS Connectivity to Eve-NG on GCP - https://youtu.be/uZ8bdtwNRLA
+Setting Up Eve-NG on GCP - https://youtu.be/TZYw-jcCRvI<br>
+Enabling HTTPS Connectivity to Eve-NG on GCP - https://youtu.be/uZ8bdtwNRLA<br>
 DHCP and Internet Access for Eve-NG on GCP - https://youtu.be/NBntWjH1GUs
 
 ## Create and Configure VM instance
