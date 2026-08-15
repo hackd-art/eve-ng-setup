@@ -12,7 +12,7 @@ DHCP and Internet Access for Eve-NG on GCP - https://youtu.be/NBntWjH1GUs
 
 ```shell
 # create VM image in GCP shell
-gcloud compute images create nested-ubuntu-focal --source-image-family=ubuntu-2004-lts --source-image-project=ubuntu-os-cloud --licenses https://www.googleapis.com/compute/v1/projects/vm-options/global/licenses/enable-vmx
+gcloud compute images create nested-ubuntu-jammy --source-image-family=ubuntu-2204-lts --source-image-project=ubuntu-os-cloud --licenses https://www.googleapis.com/compute/v1/projects/vm-options/global/licenses/enable-vmx
 ```
 
 #### VM Creation Notes:
