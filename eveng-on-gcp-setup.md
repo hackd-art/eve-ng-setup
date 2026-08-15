@@ -21,9 +21,9 @@ gcloud compute images create nested-ubuntu-jammy --source-image-family=ubuntu-22
 
 ```shell
 sudo -i
-passwd
-wget -O - https://www.eve-ng.net/focal/install-eve.sh | bash -i
-apt update && apt upgrade -y
+wget -O - https://www.eve-ng.net/jammy/install-eve.sh | bash -i
+apt update
+apt upgrade
 reboot
 
 # Ctrl+C
