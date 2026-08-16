@@ -28,7 +28,7 @@ reboot
 
 # Ctrl+C
 sudo -i
-# enter root password 2x then set everything to default
+# leave root password as blank then set everything to default
 
 # Wait for 5 min then retry
 # After prompt is back, manually turn off VM then turn it back on
