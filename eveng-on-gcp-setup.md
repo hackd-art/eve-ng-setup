@@ -137,3 +137,31 @@ rm -rf /var/lib/dhcp/*
 systemctl start isc-dhcp-server
 systemctl enable isc-dhcp-server
 ```
+
+### SSH Tunnel using pnet8
+```shell
+#Remote Machine:
+
+sudo vim /etc/ssh/sshd_config
+
+PermitTunnel yes
+GatewayPorts yes
+AllowTcpForwarding yes
+#AllowAgentForwarding yes
+
+sudo systemctl restart ssh
+
+#Local MacOS15 Machine:
+
+brew install tun2proxy
+sudo route add 192.168.254.0/24 -interface utun8
+
+terminal1:
+ssh -D 9090 [user]@[ipaddress] -N
+
+terminal2:
+tun2proxy-bin --tun utun8 --proxy socks5://127.0.0.1:9090
+
+Terminal3:
+sudo route add 192.168.254.0/24 -interface utun8
+```
