@@ -92,13 +92,14 @@ nano /etc/apache2/ports.conf
 
 ## Configuring DHCP and Internet Access for Lab Nodes
 
-#### Internet Access
+#### Internet Access using pnet9 and Mgmt Access using pnet8
 
 ```shell
 vim /etc/init.d/guacd
 
 # insert somewhere after #!/bin/sh
 ip address add 192.168.255.1/24 dev pnet9
+ip address add 192.168.254.1/24 dev pnet8
 echo 1 > /proc/sys/net/ipv4/ip_forward
 iptables -t nat -A POSTROUTING -o pnet0 -s 192.168.255.0/24 -j MASQUERADE
 # need to reboot to work
@@ -128,6 +129,11 @@ subnet 192.168.255.0 netmask 255.255.255.0 {
   range 192.168.255.101 192.168.255.200;
   option domain-name-servers 8.8.8.8;
   option routers 192.168.255.1;
+}
+
+subnet 192.168.254.0 netmask 255.255.255.0 {
+  range 192.168.254.101 192.168.254.200;
+  option routers 192.168.254.1;
 }
 
 # remove dhcp lease files
