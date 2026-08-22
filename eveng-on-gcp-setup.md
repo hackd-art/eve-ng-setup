@@ -162,12 +162,13 @@ sudo systemctl restart ssh
 brew install tun2proxy
 sudo route add 192.168.254.0/24 -interface utun8
 
-terminal1:
+#terminal1:
 ssh -D 9090 [user]@[ipaddress] -N
 
-terminal2:
+#terminal2:
+#tun2proxy uses 10.0.0.x; Avoid using 10.0.0.0/24 on any lab
 tun2proxy-bin --tun utun8 --proxy socks5://127.0.0.1:9090
 
-Terminal3:
+#terminal3:
 sudo route add 192.168.254.0/24 -interface utun8
 ```
