@@ -169,4 +169,28 @@ sudo tun2proxy-bin --tun utun8 --proxy socks5://127.0.0.1:9090
 
 #terminal3:
 sudo route add 192.168.254.0/24 -interface utun8
+
+#Local Windows11 Machine:
+
+- Download tun2proxy-x86_64-pc-windows-msvc.zip from:
+https://github.com/tun2proxy/tun2proxy/releases
+
+- Extract in C:\tun2proxy
+- add directory to %PATH%
+setx PATH "C:\tun2proxy;%PATH%"
+
+#powershell1:
+ssh -D 9090 [user]@[ipaddress] -N
+
+#powershell2:
+tun2proxy-bin --tun utun8 --proxy socks5://127.0.0.1:9090
+
+#terminal3:
+route add 192.168.254.0 mask 255.255.255.0 10.0.0.1 IF {tunnel-interface-index}
+
+#Get tunnel interface index in Powershell
+Get-NetIPInterface | Select-Object InterfaceAlias, InterfaceIndex
+
+
+
 ```
